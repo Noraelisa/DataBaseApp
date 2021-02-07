@@ -12,8 +12,8 @@ Ravintola-arviointi sovellus
 
 ## Sovelluksen tilanne välipalautus 2 
 
-* **Sovelluksessa voi tällä hetkellä luoda tunnukset, sekä kirjoittaa arvioita
-* **Herokussa voit EvaluateMe-sovelluksessa luoda omat tunnukset ja kirjoittaa arvion ravintolasta kirjallisessa muodossa
+* Sovelluksessa voi tällä hetkellä luoda tunnukset, sekä kirjoittaa arvioita
+* Herokussa voit EvaluateMe-sovelluksessa luoda omat tunnukset ja kirjoittaa arvion ravintolasta kirjallisessa muodossa
 
-* ** https://restaurant-evaluateme.herokuapp.com
+* https://restaurant-evaluateme.herokuapp.com
 
