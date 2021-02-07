@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Etusivu</title>
+    </head>
+    <h1>EvaluateMe</h1>
+    <p>EvaluateMe:ssä voit arvostella suosikkiravintoloitasi</p>
+    Arvosteluiden määrä: {{ count }}
+    <hr>
+    {% for review in reviews %}
+    <i>Arvostelu:</i> {{ review[0] }}
+    <p>
+    <i>Lähettäjä:</i> {{ review[1] }}
+    <p>
+    <i>Aika:</i> {{ review[2].strftime("%Y-%m-%d %H:%M:%S") }}
+    <hr>
+    {% endfor %}    
+    {% if session.user_id %}
+    Olet kirjautunut sisään.
+    <a href="/new">Kirjoita arvostelu</a> | <a href="/logout">Kirjaudu ulos</a>
+    {% else %}
+    <a href="/login">Kirjaudu sisään</a>
+    {% endif %}
+    
+</html>
