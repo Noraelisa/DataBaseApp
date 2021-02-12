@@ -1,6 +1,6 @@
 .env
 __pycache__
 env
-lib
-bin
+lib/
+bin/
 .DS_Store
