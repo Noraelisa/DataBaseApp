@@ -1,23 +1,46 @@
 from app import app
 from flask import render_template, request, redirect
-import reviews, users
+import reviews, users, restaurants
 
 @app.route("/")
 def index():
-    list = reviews.get_list()
-    return render_template("index.html", count=len(list), reviews=list)
+    list_res = restaurants.get_list_res()
+    return render_template("index.html", restaurants=list_res)
 
-@app.route("/new")
+@app.route("/restaurant")
 def new():
-    return render_template("new.html")
+    return render_template("restaurant.html")
 
-@app.route("/send", methods=["post"])
-def send():
-    content = request.form["content"]
-    if reviews.send(content):
+@app.route("/restaurantrev/")    
+def rev():
+    list_rev = reviews.get_list_rev()
+    return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev)
+
+@app.route("/restaurantrev/<restaurant_id>")    
+def resrev(restaurant_id):
+    restaurant_name = restaurants.get_restaurant(restaurant_id)
+    list_rev = reviews.get_list_rev()
+    return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev, restaurant_name=restaurant_name, restaurant_id=restaurant_id)
+ 
+@app.route("/add") 
+def add():
+    return render_template("add.html")   
+
+@app.route("/sendrestaurant", methods=["post"])
+def sendRes():
+    restaurant = request.form["restaurant"]
+    if restaurants.sendRes(restaurant):
         return redirect("/")
     else:
-        return render_template("error.html",message="Viestin lähetys ei onnistunut")
+        return render_template("error.html",message="Ravintolan lisäys epäonnistui")
+
+@app.route("/sendreview", methods=["post"])
+def sendRev():
+    content = request.form["content"]
+    if reviews.sendRev(content):
+        return redirect("/restaurantrev")
+    else:
+        return render_template("error.html",message="Viestin lähetys epäonnistui")
 
 @app.route("/login", methods=["get","post"])
 def login():

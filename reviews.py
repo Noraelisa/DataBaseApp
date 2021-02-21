@@ -1,12 +1,12 @@
 from db import db
-import users
+import users, restaurants
 
-def get_list():
+def get_list_rev():
     sql = "SELECT R.content, U.username, R.sent_at FROM reviews R, users U WHERE R.user_id=U.id ORDER BY R.id"
     result = db.session.execute(sql)
     return result.fetchall()
 
-def send(content):
+def sendRev(content):
     user_id = users.user_id()
     if user_id == 0:
         return False

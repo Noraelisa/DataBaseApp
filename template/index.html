@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Etusivu</title>
-    </head>
-    <h1>EvaluateMe</h1>
-    <p>Maailman yksinkertaisimmassa ravintola-arviointi sovelluksessa voit arvostella suosikkiravintoloitasi</p>
-    Arvosteluiden määrä: {{ count }}
-    <hr>
-    {% for review in reviews %}
-    <i>Arvostelu:</i> {{ review[0] }}
-    <p>
-    <i>Lähettäjä:</i> {{ review[1] }}
-    <p>
-    <i>Aika:</i> {{ review[2].strftime("%Y-%m-%d %H:%M:%S") }}
-    <hr>
-    {% endfor %}    
-    {% if session.user_id %}
-    Olet kirjautunut sisään.
-    <a href="/new">Kirjoita arvostelu</a> | <a href="/logout">Kirjaudu ulos</a>
-    {% else %}
-    <a href="/login">Kirjaudu sisään</a>
-    {% endif %}
-    
+    <body>
+        <h1>EvaluateMe</h1>
+        <p>Maailman yksinkertaisimmassa ravintola-arviointi sovelluksessa voit arvostella suosikkiravintoloitasi</p>
+        <hr>
+      
+        {% if session.user_id %}
+        Ravintolat:
+        <p>
+        {% for restaurant in restaurants %}
+        <a href="/restaurantrev/{{ restaurant_id }}">{{ restaurant[0] }}</a>
+        <p>
+        {% endfor %} 
+        <hr>
+        Olet kirjautunut sisään.
+        <p>   
+        <a href="/add">Lisää tästä ravintola</a> | <a href="/logout">Kirjaudu ulos</a>
+        {% else %}
+        Ravintolat:
+        <p>
+        {% for restaurant in restaurants %}
+        {{ restaurant[0] }}
+        <p>
+        {% endfor %} 
+        <p>
+        <hr>
+        Jos haluat päästä arvostelemaan, niin kirjaudu sisään
+        <a href="/login">tästä</a> tai <a href="/register">rekisteröidy</a>
+        {% endif %}
+    </body>  
 </html>

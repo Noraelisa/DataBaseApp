@@ -9,3 +9,13 @@ CREATE TABLE reviews (
     user_id INTEGER REFERENCES users,
     sent_at TIMESTAMP
 );
+
+CREATE TABLE restaurants (
+    id SERIAL PRIMARY KEY,
+    restaurant TEXT
+);
+
+CREATE TABLE restaurant_reviews (
+    restaurant_id INTEGER REFERENCES restaurants, 
+    review_id INTEGER REFERENCES reviews
+);

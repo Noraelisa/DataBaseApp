@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Review</title>
+    </head>
+
+    <h2>Anna tähtiä:</h2>
+
+    <p>
+        <input type="radio" name="stars" value="1"> 1
+        <input type="radio" name="stars" value="2"> 2
+        <input type="radio" name="stars" value="3"> 3
+        <input type="radio" name="stars" value="4"> 4
+        <input type="radio" name="stars" value="5"> 5
+    <p>
+
+    <h2>Kirjoita arvostelu tähän:</h2>
+
+    <form action="/sendreview" method="post">
+        Arvostelu: <br>
+        <textarea name="content" rows="3" cols="40"></textarea>
+        <br>
+        <input type="submit" value="Lähetä">
+    </form>
+    <hr>
+    <nav>
+        <a href="/">Etusivu</a> | <a href="/logout">Kirjaudu ulos</a>
+    </nav>
+    
+</html>    
