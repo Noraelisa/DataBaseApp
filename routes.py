@@ -11,7 +11,7 @@ def index():
 def new():
     return render_template("restaurant.html")
 
-@app.route("/restaurantrev/")    
+@app.route("/restaurantrev")    
 def rev():
     list_rev = reviews.get_list_rev()
     return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev)
