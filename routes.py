@@ -11,33 +11,29 @@ def index():
 def new():
     return render_template("restaurant.html")
 
-@app.route("/restaurantrev")    
-def rev():
-    list_rev = reviews.get_list_rev()
-    return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev)
+@app.route("/restaurantrev/<int:id>")    
+def rev(id):
+    res_name = reviews.get_res(id)
+    list_rev = reviews.get_list_rev(id)
+    return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev, res_name=res_name)
 
-@app.route("/restaurantrev/<restaurant_id>")    
-def resrev(restaurant_id):
-    restaurant_name = restaurants.get_restaurant(restaurant_id)
-    list_rev = reviews.get_list_rev()
-    return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev, restaurant_name=restaurant_name, restaurant_id=restaurant_id)
- 
 @app.route("/add") 
 def add():
     return render_template("add.html")   
 
 @app.route("/sendrestaurant", methods=["post"])
-def sendRes():
+def send_res():
     restaurant = request.form["restaurant"]
-    if restaurants.sendRes(restaurant):
+    if restaurants.send_res(restaurant):
         return redirect("/")
     else:
         return render_template("error.html",message="Ravintolan lisäys epäonnistui")
 
 @app.route("/sendreview", methods=["post"])
-def sendRev():
+def send_rev():
     content = request.form["content"]
-    if reviews.sendRev(content):
+    restaurant_id = request.form["restaurant_id"]
+    if reviews.send_rev(content, restaurant_id):
         return redirect("/restaurantrev")
     else:
         return render_template("error.html",message="Viestin lähetys epäonnistui")
