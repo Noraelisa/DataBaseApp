@@ -15,8 +15,3 @@ CREATE TABLE restaurants (
     id SERIAL PRIMARY KEY,
     restaurant TEXT
 );
-
-CREATE TABLE restaurant_reviews (
-    restaurant_id INTEGER REFERENCES restaurants, 
-    review_id INTEGER REFERENCES reviews
-);
