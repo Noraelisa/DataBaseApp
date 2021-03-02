@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,9 +13,9 @@
     <hr>
     Arvosteluiden määrä: {{ count }}
     <hr>
-        {{ id }}
-    {% for review in reviews %}
+    {{ id }}
     Annettu {{ stars }} tähteä
+    {% for review in reviews %}
     <p>
     <i>Arvostelu:</i> {{ review[0] }}
     <p>
@@ -30,4 +29,4 @@
         <a href="/">Etusivu</a> | <a href="/restaurant/{{ id }}">Anna arvostelu ravintolalle</a> | <a href="/logout">Kirjaudu ulos</a>
     </nav>
     
-</html>  
+</html> 
