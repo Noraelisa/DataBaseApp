@@ -7,8 +7,8 @@ def index():
     list_res = restaurants.get_list_res()
     return render_template("index.html", restaurants=list_res)
 
-@app.route("/restaurant")
-def new():
+@app.route("/restaurant/<int:id>")
+def new(id):
     return render_template("restaurant.html")
 
 @app.route("/restaurantrev/<int:id>")    
@@ -31,8 +31,8 @@ def send_res():
 
 @app.route("/sendreview", methods=["post"])
 def send_rev():
+    restaurant_id=request.args.get('restaurant_id')
     content = request.form["content"]
-    restaurant_id = request.form["restaurant_id"]
     if reviews.send_rev(content, restaurant_id):
         return redirect("/restaurantrev/<int:id>")
     else:

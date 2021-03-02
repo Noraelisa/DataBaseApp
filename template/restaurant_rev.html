@@ -7,14 +7,14 @@
     Ravintola:
     <p>
     {% for restaurant in restaurants %}
-    <a href="/restaurantrev/{{ restaurant.id }}">{{ restaurant[0] }}</a>
+    {{ restaurant[0] }}
     <p>
+        
     {% endfor %} 
     <hr>
-
     Arvosteluiden määrä: {{ count }}
     <hr>
-
+        {{ id }}
     {% for review in reviews %}
     Annettu {{ stars }} tähteä
     <p>
@@ -25,9 +25,9 @@
     <i>Aika:</i> {{ review[2].strftime("%Y-%m-%d %H:%M:%S") }}
     <hr>
     {% endfor %}
-    
+
     <nav>
-        <a href="/">Etusivu</a> | <a href="/restaurant">Anna arvostelu ravintolalle</a> | <a href="/logout">Kirjaudu ulos</a>
+        <a href="/">Etusivu</a> | <a href="/restaurant/{{ id }}">Anna arvostelu ravintolalle</a> | <a href="/logout">Kirjaudu ulos</a>
     </nav>
     
 </html>  

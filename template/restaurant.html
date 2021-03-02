@@ -17,12 +17,11 @@
 
     <h2>Kirjoita arvostelu tähän:</h2>
 
-    <form action="/sendreview" method="post">
+    <form action="/sendreview?restaurant_id={{id}}" method="post">
         Arvostelu: <br>
         <textarea name="content" rows="3" cols="40"></textarea>
         <br>
         <input type="submit" value="Lähetä">
-        <input type="hidden" name="restaurant_id" value="{{ id }}">
     </form>
     <hr>
     <nav>
