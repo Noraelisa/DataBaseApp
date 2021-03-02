@@ -31,7 +31,7 @@ def send_res():
 
 @app.route("/sendreview", methods=["post"])
 def send_rev():
-    restaurant_id=request.args.get("restaurant_id")
+    restaurant_id = request.form["restaurant_id"]
     content = request.form["content"]
     if reviews.send_rev(content, restaurant_id):
         return redirect("/")

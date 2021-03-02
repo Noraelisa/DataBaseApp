@@ -2,7 +2,7 @@ from db import db
 import users, restaurants
 
 def get_list_rev(id):
-    sql = "SELECT R.content, R.user_id, R.sent_at FROM reviews R, restaurants Res WHERE Res.id=:id"
+    sql = "SELECT R.content, U.username, R.sent_at FROM reviews R, users U WHERE R.restaurant_id=:id AND R.user_id=U.id ORDER BY R.id"
     result = db.session.execute(sql, {"id":id})
     return result.fetchall()
 
