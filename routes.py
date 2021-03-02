@@ -13,7 +13,7 @@ def new():
 
 @app.route("/restaurantrev/<int:id>")    
 def rev(id):
-    res_name = reviews.get_res(id)
+    res_name = restaurants.get_res(id)
     list_rev = reviews.get_list_rev(id)
     return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev, res_name=res_name)
 
@@ -34,7 +34,7 @@ def send_rev():
     content = request.form["content"]
     restaurant_id = request.form["restaurant_id"]
     if reviews.send_rev(content, restaurant_id):
-        return redirect("/restaurantrev")
+        return redirect("/restaurantrev/<int:id>")
     else:
         return render_template("error.html",message="Viestin lähetys epäonnistui")
 
