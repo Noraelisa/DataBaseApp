@@ -2,8 +2,8 @@ from db import db
 import users, restaurants
 
 def get_list_rev(id):
-    sql = "SELECT Res.restaurant FROM reviews R, restaurants Res WHERE R.id=:restaurant_id AND Res.id=R.restaurant_id"
-    result = db.session(sql, {"id":id})
+    sql = "SELECT R.content FROM reviews R, restaurants Res WHERE R.id=:id AND Res.id=R.restaurant_id"
+    result = db.session.execute(sql, {"id":id})
     return result.fetchall()
 
 def send_rev(content, restaurant_id):

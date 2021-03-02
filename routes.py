@@ -15,7 +15,7 @@ def new():
 def rev(id):
     res_name = restaurants.get_res(id)
     list_rev = reviews.get_list_rev(id)
-    return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev, restaurants=res_name)
+    return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev, restaurants=res_name, id=id)
 
 @app.route("/add") 
 def add():
