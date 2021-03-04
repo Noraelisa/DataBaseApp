@@ -15,7 +15,8 @@ def new(id):
 def rev(id):
     res_name = restaurants.get_res(id)
     list_rev = reviews.get_list_rev(id)
-    return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev, restaurants=res_name, id=id)
+    get_stars = reviews.get_stars(id)
+    return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev, restaurants=res_name, get_stars=get_stars, id=id)
 
 @app.route("/add") 
 def add():
@@ -33,7 +34,8 @@ def send_res():
 def send_rev():
     restaurant_id = request.form["restaurant_id"]
     content = request.form["content"]
-    if reviews.send_rev(content, restaurant_id):
+    stars = request.form["stars"]
+    if reviews.send_rev(content, restaurant_id, ,stars): 
         return redirect("/")
     else:
         return render_template("error.html",message="Viestin lähetys epäonnistui")
