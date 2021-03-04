@@ -35,7 +35,7 @@ def send_rev():
     restaurant_id = request.form["restaurant_id"]
     content = request.form["content"]
     stars = request.form["stars"]
-    if reviews.send_rev(content, restaurant_id, ,stars): 
+    if reviews.send_rev(content, restaurant_id, stars): 
         return redirect("/")
     else:
         return render_template("error.html",message="Viestin lähetys epäonnistui")
