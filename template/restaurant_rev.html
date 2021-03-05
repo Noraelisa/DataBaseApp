@@ -5,16 +5,12 @@
     </head>
     Ravintola:
     <p>
-    {% for restaurant in restaurants %}
-    {{ restaurant[0] }}
+    {{ restaurant }}
     <p>
-        
-    {% endfor %} 
     <hr>
     Arvosteluiden määrä: {{ count }}
     <hr>
-    {{ id }}
-    Annettu {{ stars }} tähteä
+    Annettu {{ get_stars }} tähteä
     {% for review in reviews %}
     <p>
     <i>Arvostelu:</i> {{ review[0] }}

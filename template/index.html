@@ -1,32 +1,42 @@
 <!DOCTYPE html>
+{% extends "layout.html" %}
+<link rel="stylesheet" href="/static/css/main.css">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+{% block content %}
 <html>
     <body>
-        <h1>EvaluateMe</h1>
+        <div class="header">
+            <h1>EvaluateMe</h1>
+        </div>
+
         <p>Maailman yksinkertaisimmassa ravintola-arviointi sovelluksessa voit arvostella suosikkiravintoloitasi</p>
         <hr>
-      
-        {% if session.user_id %}
-        Ravintolat:
-        <p>
-        {% for restaurant in restaurants %}
-        <a href="/restaurantrev/{{ restaurant.id }}">{{ restaurant[0] }}</a>
-        <p>
-        {% endfor %} 
-        <hr>
-        Olet kirjautunut sisään.
-        <p>   
-        <a href="/add">Lisää tästä ravintola</a> | <a href="/logout">Kirjaudu ulos</a>
-        {% else %}
-        Ravintolat:
-        <p>
-        {% for restaurant in restaurants %}
-        {{ restaurant[0] }}
-        <p>
-        {% endfor %} 
-        <p>
-        <hr>
-        Jos haluat päästä arvostelemaan, niin kirjaudu sisään
-        <a href="/login">tästä</a> tai <a href="/register">rekisteröidy</a>
-        {% endif %}
+
+        <div class="content">
+            {% if session.user_id %}
+            Ravintolat:
+            <p>
+            {% for restaurant in restaurants %}
+            <a href="/restaurantrev/{{ restaurant.id }}">{{ restaurant[0] }}</a>
+            <p>
+            {% endfor %} 
+            <hr>
+            Olet kirjautunut sisään.
+            <p>   
+            <a href="/add">Lisää tästä ravintola</a> | <a href="/logout">Kirjaudu ulos</a>
+            {% else %}
+            Ravintolat:
+            <p>
+            {% for restaurant in restaurants %}
+            {{ restaurant[0] }}
+            <p>
+            {% endfor %} 
+            <p>
+            <hr>
+            Jos haluat päästä arvostelemaan, niin kirjaudu sisään
+            <a href="/login">tästä</a> tai <a href="/register">rekisteröidy</a>
+            {% endif %}
+        </div>    
     </body>  
 </html>
+{% endblock %}

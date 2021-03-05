@@ -2,14 +2,14 @@ from db import db
 import users, restaurants
 
 def get_list_rev(id):
-    sql = "SELECT AVG(R.stars)::numeric(10,2) FROM reviews R WHERE R.restaurant_id=:id"
+    sql = "SELECT R.content, U.username, R.sent_at FROM reviews R, users U WHERE R.restaurant_id=:id AND R.user_id=U.id ORDER BY R.id"
     result = db.session.execute(sql, {"id":id})
     return result.fetchall()
 
 def get_stars(id):
-    sql = "SELECT R.content, U.username, R.sent_at FROM reviews R, users U WHERE R.restaurant_id=:id AND R.user_id=U.id ORDER BY R.id"
+    sql = "SELECT AVG(stars)::numeric(10,2) FROM reviews WHERE restaurant_id=:id"
     result = db.session.execute(sql, {"id":id})
-    return result.fetchall()
+    return result.fetchone()[0]
 
 def send_rev(content, restaurant_id, stars):
     user_id = users.user_id()

@@ -14,4 +14,5 @@ def send_res(restaurant):
 def get_res(id):
     sql = "SELECT restaurant from restaurants where id=:id"
     result = db.session.execute(sql, {"id":id})
-    return result.fetchall()
+    restaurant = result.fetchone()[0]
+    return restaurant

@@ -16,7 +16,8 @@ def rev(id):
     res_name = restaurants.get_res(id)
     list_rev = reviews.get_list_rev(id)
     get_stars = reviews.get_stars(id)
-    return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev, restaurants=res_name, get_stars=get_stars, id=id)
+    print(get_stars)
+    return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev, restaurant=res_name, get_stars=get_stars, id=id)
 
 @app.route("/add") 
 def add():
@@ -65,13 +66,15 @@ def register():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
+        admin = True if request.form["admin"] else False
+        print("admin", admin)
+
         if len(username) < 4:
             return render_template("error.html",message="liian lyhyt tunnus")  
-        if len(password) < 5:
+        if len(password) < 4:
             return render_template("error.html",message="liian lyhyt salasana")   
     
-        if users.register(username,password):
+        if users.register(username,password,admin):
             return redirect("/")
         else:
             return render_template("error.html",message="Rekisteröinti ei onnistunut")
-
