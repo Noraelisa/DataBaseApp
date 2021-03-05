@@ -51,7 +51,7 @@ def login():
             return redirect("/")
         else:
             return render_template("error.html",message="Väärä tunnus tai salasana")
-
+       
 @app.route("/logout")
 def logout():
     users.logout()
@@ -61,10 +61,17 @@ def logout():
 def register():
     if request.method == "GET":
         return render_template("register.html")
+
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
+        if len(username) < 4:
+            return render_template("error.html",message="liian lyhyt tunnus")  
+        if len(password) < 5:
+            return render_template("error.html",message="liian lyhyt salasana")   
+    
         if users.register(username,password):
             return redirect("/")
         else:
             return render_template("error.html",message="Rekisteröinti ei onnistunut")
+
