@@ -1,9 +1,10 @@
 
 body {
-    background-color: lightblue;
+    background-color: #3399cc;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 h1 {
-    color: white;
+    color:dodgerblue;
     text-align: center;
 }
