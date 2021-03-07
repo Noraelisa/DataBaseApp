@@ -10,23 +10,27 @@
 
         <h1>Kirjoita arvostelu tähän:</h1>
         <hr>
-        <form action="/sendreview" method="post">
-            Anna tähtiä: 
-            <input type="radio" name="stars" value="1"> 1
-            <input type="radio" name="stars" value="2"> 2
-            <input type="radio" name="stars" value="3"> 3
-            <input type="radio" name="stars" value="4"> 4
-            <input type="radio" name="stars" value="5"> 5
-            <p>
-            Arvostelu: 
-            <textarea name="content" rows="3" cols="40"></textarea>
-            <p>
-            <input type="submit" value="Lähetä">
-            <input type="hidden" name="restaurant_id" value="{{ id }}">
-        </form>
+        <div class = "container">
+            <form action="/sendreview" method="post">
+                Anna tähtiä: 
+                <input type="radio" name="stars" value="1"> 1
+                <input type="radio" name="stars" value="2"> 2
+                <input type="radio" name="stars" value="3"> 3
+                <input type="radio" name="stars" value="4"> 4
+                <input type="radio" name="stars" value="5"> 5
+                <p>
+                 
+                 Arvostelu: 
+                 <textarea name="content" rows="10" cols="40"></textarea>
+                <p>
+                <input type="submit" value="Lähetä">
+                <input type="hidden" name="restaurant_id" value="{{ id }}">
+            </form>
+        </div>    
         <hr>
         <nav>
             <a href="/">Etusivu</a> | <a href="/logout">Kirjaudu ulos</a>
         </nav>
+        <hr>
     </html>
 {% endblock %}      

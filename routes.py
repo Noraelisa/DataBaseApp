@@ -74,8 +74,8 @@ def register():
             return render_template("error.html",message="liian pitkä tunnus")    
         if len(password) < 4:
             return render_template("error.html",message="liian lyhyt salasana")  
-        elif len(password) > 30:
-            return render_template("error.html",message="liian pitkä salasana")     
+        elif len(password) > 50:
+            return render_template("error.html",message="liian pitkä salasana")    
         if users.register(username,password,admin):
             return redirect("/")
         else:

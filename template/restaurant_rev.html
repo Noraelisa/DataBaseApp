@@ -11,28 +11,33 @@
         <h1>{{ restaurant }}</h1>
         <p>
         <hr>
-        Arvosteluiden määrä: {{ count }}
-        <p>
-        Annettu {{ get_stars }} tähteä
-        <hr>
-        {% for review in reviews %}
-        <p>
-        <i>Arvostelu:</i> {{ review[0] }}
-        <p>
-        <i>Lähettäjä:</i> {{ review[1] }}
-        <p>
-        <i>Aika:</i> {{ review[2].strftime("%Y-%m-%d %H:%M:%S") }}
-        <hr>
-        {% endfor %}
-    
+        <div class = "container">
+            <hr>
+            Arvosteluiden määrä: {{ count }}
+            <p>
+            Annettu {{ get_stars }} tähteä
+            <hr>
+            {% for review in reviews %}
+            <p>
+            <i>Arvostelu:</i> {{ review[0] }}
+            <p>
+            <i>Lähettäjä:</i> {{ review[1] }}
+            <p>
+            <i>Aika:</i> {{ review[2].strftime("%Y-%m-%d %H:%M:%S") }}
+            <hr>
+            {% endfor %}
+        </div>  
+        <hr>      
         {% if session.user_id %}
             <nav>
                 <a href="/">Etusivu</a> | <a href="/restaurant/{{ id }}">Anna arvostelu ravintolalle</a> | <a href="/logout">Kirjaudu ulos</a>
             </nav>
+            <hr>
         {% else %}
         <nav>
             <a href="/">Etusivu</a> | <a href="/login">Kirjaudu sisään</a> | <a href="/register">Rekisteröidy</a>
         </nav>
+        <hr>
         {% endif %}
     </html> 
 {% endblock %}    

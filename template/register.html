@@ -9,18 +9,22 @@
         </head>
 
         <h1>Rekisteröinti</h1>
-
-        <form action="/register" method="post">
-            Tunnus: <input type="text" name="username">
-            <p>
-            Salasana: <input type="password" name="password">
-            <p>
-            <input type="checkbox" name="admin" value="ravintoloitsija"> Ravintoloitsija
-            <p>
-            <input type="submit" value="Luo tunnus">
-        </form>
-        <nav>
+        <hr>
+        <div class = "container">
+            <form action="/register" method="post">
+                Tunnus: <input type="text" name="username">
+                <p>
+                Salasana: <input type="password" name="password">
+                <p>
+                <input type="checkbox" name="admin" value="ravintoloitsija"> Ravintoloitsija
+                <p>
+                <input type="submit" value="Luo tunnus">
+            </form>
+        </div> 
+        <hr> 
+        <nav>      
             <a href="/">Etusivu</a> | <a href="/login">Kirjaudu sisään</a>
         </nav>
+        <hr>
     </html>    
 {% endblock %}    

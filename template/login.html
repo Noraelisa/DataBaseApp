@@ -9,17 +9,20 @@
         </head>
     
         <h1>Kirjaudu sisään</h1>
-
-        <form action="/login" method="post">
-            Tunnus: <input type="text" name="username">
-            <p>
-            Salasana: <input type="password" name="password">
-            <p>
-            <input type="submit" value="Kirjaudu">
-        </form>
+        <hr>
+        <div class = "container">
+            <form action="/login" method="post">
+                Tunnus: <input type="text" name="username">
+                <p>
+                Salasana: <input type="password" name="password">
+                <p>
+                <input type="submit" value="Kirjaudu">
+            </form>
+        </div>
+        <hr>
         <nav>
             <a href="/">Etusivu</a> | <a href="/register">Rekisteröidy</a>
         </nav>
-    
+        <hr>
     </html>
 {% endblock %}    

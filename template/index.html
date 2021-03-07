@@ -9,29 +9,35 @@
         <hr>
 
         <div class="content">
-            Ravintolat:
-            <p>
-            {% for restaurant in restaurants %}
-            <a href="/restaurantrev/{{ restaurant.id }}">{{ restaurant[0] }}</a>
-            <p>
-            {% endfor %} 
+            <div class="container">
+                Ravintolat:
+                <p>
+                {% for restaurant in restaurants %}
+                <a href="/restaurantrev/{{ restaurant.id }}">{{ restaurant[0] }}</a>
+                <p>
+                {% endfor %} 
+            </div>
+            {% if admin %}
+            <hr>
+            <nav>     
+                <a href="/add">Lisää tästä ravintola</a>
+            </nav>
+             
+            {% endif %} 
 
             {% if session.user_id %}
             <hr>
+            <nav>     
+                <a href="/logout">Kirjaudu ulos</a>
+            </nav>
+            <hr> 
             Olet kirjautunut sisään.
-            <p>   
-            <a href="/add">Lisää tästä ravintola</a> | <a href="/logout">Kirjaudu ulos</a>
             {% else %}
             <hr>
             Jos haluat päästä arvostelemaan, niin kirjaudu sisään
             <a href="/login">tästä</a> tai <a href="/register">rekisteröidy</a>
             {% endif %}
-
-            {% if admin %}
-            Olet admin
-            {% else %}
-            Et ole admin
-            {% endif %}
+            <hr>
         </div>  
 
 {% endblock %}

@@ -1,6 +1,6 @@
 
 body {
-    background-color:lightgray; 
+    background-color: lightgray; 
     font-family: 'Times New Roman', Times, serif;
     margin: auto;
     max-width: 45em;
@@ -13,16 +13,56 @@ h1 {
 
 nav {
     display: block;
-    color: #3399cc;
+    color: #3399cc; 
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
 }
 
 img {
     width: 200px;
     height: 200px;
     margin: auto;
+    display: block;
   }
 
 form {
     margin: auto;   
-    background: lightblue;
+  }
+
+.container {
+    background-color:darkgrey;
+    padding: 16px;
+    border-radius: 5px;
+}
+
+a {
+    color:#3399cc; 
+}
+
+textarea {
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  input[type=submit] {
+
+    background-color: #3399cc;
+    border-radius: 10px;
+    padding: 8px 10px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+  }
+
+  input[type=text]{
+    padding: 4px;
+    border-radius: 5px;
+  }
+
+  input[type=password]{
+    padding: 4px;
+    border-radius: 5px;
   }
