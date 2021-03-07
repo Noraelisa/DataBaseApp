@@ -27,3 +27,14 @@ Mitä sovelluksesta vielä puuttuu:
 - ravintola kohtaiset arvioinnit (aloitettu)
 - kartta
 - css (aloitettu)
+
+## Sovelluksen tilanne lopullisessa palautuksessa
+
+* Sovelluksessa voi lisätä ravintoloita, kirjoittaa lisätyistä ravintoloista arvioita sekä lukea arvioita
+* Sovelluksessa voi luoda tavallisen user-käyttäjätunnuksen tai admin-ominaisuudella olevat tunnukset 
+* User-käyttäjä voi arvioida ravintoloita sekä lukea arvioita
+* Admin-käyttäjä voi lisätä ravintoloita, arvioida niitä sekä lukea arvioita
+* Sovelluksessa voi myös lukea arvioita, ilman, että tarvitsee kirjautua sisään
+* Arvioita annetaan kirjallisena sekä tähti-arvosteluina(1-5)
+* Arvioita pääsee lukemaan painamalla ravintolan nimeä, joka vie käyttäjän ravintolan jo annettuihin arvioihin. 
+* Ravintolan arviointi sivulta löytyy linkki arviointilomakkeeseen, josta voi kirjoittaa kyseiselle ravintolalle arvioin
