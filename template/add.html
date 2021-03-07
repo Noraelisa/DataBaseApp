@@ -1,20 +1,25 @@
-
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Add</title>
-    </head>
+{% extends "layout.html" %}
+<link rel="stylesheet" href="/static/css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <h1>Lisää ravintola </h1>
+{% block content %}
+    <html>
+        <head>
+            <title>Add</title>
+        </head>
 
-    <form action="/sendrestaurant" method="post">
-        Ravintola: <br>
-        <textarea name="restaurant" rows="2" cols="30"></textarea>
-        <br>
-        <input type="submit" value="Lisää">
-    </form>
-    <hr>
-    <nav>
-        <a href="/">Etusivu</a> | <a href="/logout">Kirjaudu ulos</a>
-    </nav>
-</html>    
+        <h1>Lisää ravintola </h1>
+
+        <form action="/sendrestaurant" method="post">
+            Ravintola: <br>
+            <textarea name="restaurant" rows="2" cols="30"></textarea>
+            <br>
+            <input type="submit" value="Lisää">
+        </form>
+        <hr>
+        <nav>
+            <a href="/">Etusivu</a> | <a href="/logout">Kirjaudu ulos</a>
+        </nav>
+    </html>    
+{% endblock %}

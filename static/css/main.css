@@ -1,10 +1,28 @@
 
 body {
-    background-color: #3399cc;
+    background-color:lightgray; 
     font-family: 'Times New Roman', Times, serif;
+    margin: auto;
+    max-width: 45em;
 }
 
 h1 {
-    color:dodgerblue;
+    color: #3399cc;
     text-align: center;
 }
+
+nav {
+    display: block;
+    color: #3399cc;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+  }
+
+form {
+    margin: auto;   
+    background: lightblue;
+  }

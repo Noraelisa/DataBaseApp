@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Login</title>
-    </head>
-    
-    <h1>Kirjaudu sisään</h1>
+{% extends "layout.html" %}
+<link rel="stylesheet" href="/static/css/main.css">
 
-    <form action="/login" method="post">
-        Tunnus: <input type="text" name="username">
-        <p>
-        Salasana: <input type="password" name="password">
-        <p>
-        <input type="submit" value="Kirjaudu">
-    </form>
-    <nav>
-        <a href="/">Etusivu</a> | <a href="/register">Rekisteröidy</a>
-    </nav>
+{% block content %}
+    <html>
+        <head>
+            <title>Login</title>
+        </head>
     
-</html>
+        <h1>Kirjaudu sisään</h1>
+
+        <form action="/login" method="post">
+            Tunnus: <input type="text" name="username">
+            <p>
+            Salasana: <input type="password" name="password">
+            <p>
+            <input type="submit" value="Kirjaudu">
+        </form>
+        <nav>
+            <a href="/">Etusivu</a> | <a href="/register">Rekisteröidy</a>
+        </nav>
+    
+    </html>
+{% endblock %}    

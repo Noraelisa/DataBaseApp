@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Review</title>
-    </head>
+{% extends "layout.html" %}
+<link rel="stylesheet" href="/static/css/main.css">
 
-    {{ id }}
-  
-    <h2>Kirjoita arvostelu tähän:</h2>
+{% block content %}
+    <html>
+        <head>
+            <title>Review</title>
+        </head>
 
-    <form action="/sendreview" method="post">
-        Anna tähtiä: 
-        <br>
-        <input type="radio" name="stars" value="1"> 1
-        <input type="radio" name="stars" value="2"> 2
-        <input type="radio" name="stars" value="3"> 3
-        <input type="radio" name="stars" value="4"> 4
-        <input type="radio" name="stars" value="5"> 5
-        <br>
-        Arvostelu: 
-        <textarea name="content" rows="3" cols="40"></textarea>
-        <br>
-        <input type="submit" value="Lähetä">
-        <input type="hidden" name="restaurant_id" value="{{ id }}">
-    </form>
-    <hr>
-    <nav>
-        <a href="/">Etusivu</a> | <a href="/logout">Kirjaudu ulos</a>
-    </nav>
-    
-</html>   
+        <h1>Kirjoita arvostelu tähän:</h1>
+        <hr>
+        <form action="/sendreview" method="post">
+            Anna tähtiä: 
+            <input type="radio" name="stars" value="1"> 1
+            <input type="radio" name="stars" value="2"> 2
+            <input type="radio" name="stars" value="3"> 3
+            <input type="radio" name="stars" value="4"> 4
+            <input type="radio" name="stars" value="5"> 5
+            <p>
+            Arvostelu: 
+            <textarea name="content" rows="3" cols="40"></textarea>
+            <p>
+            <input type="submit" value="Lähetä">
+            <input type="hidden" name="restaurant_id" value="{{ id }}">
+        </form>
+        <hr>
+        <nav>
+            <a href="/">Etusivu</a> | <a href="/logout">Kirjaudu ulos</a>
+        </nav>
+    </html>
+{% endblock %}      

@@ -5,7 +5,8 @@ import reviews, users, restaurants
 @app.route("/")
 def index():
     list_res = restaurants.get_list_res()
-    return render_template("index.html", restaurants=list_res)
+    admin = users.is_admin()
+    return render_template("index.html", restaurants=list_res, admin=admin)
 
 @app.route("/restaurant/<int:id>")
 def new(id):
@@ -16,7 +17,6 @@ def rev(id):
     res_name = restaurants.get_res(id)
     list_rev = reviews.get_list_rev(id)
     get_stars = reviews.get_stars(id)
-    print(get_stars)
     return render_template("restaurant_rev.html", count=len(list_rev), reviews=list_rev, restaurant=res_name, get_stars=get_stars, id=id)
 
 @app.route("/add") 
@@ -66,14 +66,16 @@ def register():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-        admin = True if request.form["admin"] else False
-        print("admin", admin)
+        admin = True if "admin" in request.form else False
 
         if len(username) < 4:
             return render_template("error.html",message="liian lyhyt tunnus")  
+        elif len(username) > 20:
+            return render_template("error.html",message="liian pitkä tunnus")    
         if len(password) < 4:
-            return render_template("error.html",message="liian lyhyt salasana")   
-    
+            return render_template("error.html",message="liian lyhyt salasana")  
+        elif len(password) > 30:
+            return render_template("error.html",message="liian pitkä salasana")     
         if users.register(username,password,admin):
             return redirect("/")
         else:
