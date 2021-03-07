@@ -38,6 +38,7 @@ Mitä sovelluksesta vielä puuttuu:
 * Arvioita annetaan kirjallisena sekä tähti-arvosteluina(1-5)
 * Arvioita pääsee lukemaan painamalla ravintolan nimeä, joka vie käyttäjän ravintolan jo annettuihin arvioihin. 
 * Ravintolan arviointi sivulta löytyy linkki arviointilomakkeeseen, josta voi kirjoittaa kyseiselle ravintolalle arvioin
+* Sovelluksen logo on itse luotu
 * https://restaurant-evaluateme.herokuapp.com 
 
 Sovelluksesta jäi puuttumaan: 

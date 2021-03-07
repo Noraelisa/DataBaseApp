@@ -15,7 +15,7 @@
             <hr>
             Arvosteluiden määrä: {{ count }}
             <p>
-            Annettu {{ get_stars }} tähteä
+            Annettu {{ get_stars }}/5  tähteä
             <hr>
             {% for review in reviews %}
             <p>
@@ -24,6 +24,8 @@
             <i>Lähettäjä:</i> {{ review[1] }}
             <p>
             <i>Aika:</i> {{ review[2].strftime("%Y-%m-%d %H:%M:%S") }}
+            <p>
+            <i>Tähdet:</i> {{ review[3] }}    
             <hr>
             {% endfor %}
         </div>  
